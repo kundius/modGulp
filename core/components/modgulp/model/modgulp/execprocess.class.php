@@ -5,26 +5,19 @@ class ExecProcess
     private $pid;
     private $log;
     private $command;
-    private $root;
+    private $gulpfile;
 
     private $envList = [];
-
-    private $additional = [];
 
     private function runCom()
     {
         $command = "";
         if(!empty($this->envList)){
-            $command .= 'export PATH=$PATH:'.implode(":", $this->envList).'; ';
-        }
-        if(!empty($this->root)){
-            $command .= 'cd '.$this->root.'; ';
+            $command .= 'export PATH=$PATH:' . implode(":", $this->envList) . '; ';
         }
         if(!empty($this->command)){
-            $command .= $this->command . ' > ' . $this->log . ' 2>&1 & echo $!;';
-        }
-        if(!empty($this->additional)){
-            $command .= implode("; ", $this->additional);
+            $gulpfile = !empty($this->gulpfile) ? ' --gulpfile ' . $this->gulpfile : '';
+            $command .= $this->command . $gulpfile . ' > ' . $this->log . ' 2>&1 & echo $!;';
         }
         exec($command, $op);
         $this->pid = $op[0];
@@ -40,9 +33,9 @@ class ExecProcess
         $this->pid = $pid;
     }
 
-    public function setRoot($root)
+    public function setGulpfile($gulpfile)
     {
-        $this->root = $root;
+        $this->gulpfile = $gulpfile;
     }
 
     public function setEnv($envList)
@@ -53,11 +46,6 @@ class ExecProcess
     public function setCommand($commandLine)
     {
         $this->command = $commandLine;
-    }
-
-    public function setAdditional($additionalCommands)
-    {
-        $this->additional = $additionalCommands;
     }
 
     public function getPid()

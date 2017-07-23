@@ -46,7 +46,7 @@ class modGulp
 
         $this->execProcess = new ExecProcess();
         $this->execProcess->setLogFile($this->tempLogFile);
-        $this->execProcess->setRoot($this->modx->getOption('modgulp_root'));
+        $this->execProcess->setGulpfile($this->modx->getOption('modgulp_gulpfile'));
         $this->execProcess->setEnv([$this->modx->getOption('modgulp_bin_path')]);
         $this->execProcess->setCommand('gulp');
 

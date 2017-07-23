@@ -10,9 +10,9 @@ $tmp = array(
         'value' => '',
         'area' => 'modgulp_main',
     ),
-    'root' => array(
+    'gulpfile' => array(
         'xtype' => 'textfield',
-        'value' => '{base_path}',
+        'value' => '',
         'area' => 'modgulp_main',
     ),
 );
