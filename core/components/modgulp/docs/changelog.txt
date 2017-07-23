@@ -1,0 +1,5 @@
+Changelog for modGulp.
+
+1.0.0-beta
+==============
+- Initial release.

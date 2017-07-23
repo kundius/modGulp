@@ -1,0 +1,26 @@
+.modgulp-button {
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
+.modgulp-button .icon {
+    top: 0;
+}
+.modgulp-button:hover .icon {
+	transition: color 0.25s;
+}
+.modgulp-button .icon-stack-2x {
+    color: rgba(0, 0, 0, 0.25);
+}
+.modgulp-button:hover .icon-stack-2x {
+    color: rgba(0, 0, 0, 0.5);
+}
+.modgulp-button .icon-stack-1x {
+    color: rgba(255, 255, 255, 0.25);
+}
+.modgulp-button:hover .icon-stack-1x {
+    color: rgba(255, 255, 255, 1);
+}
