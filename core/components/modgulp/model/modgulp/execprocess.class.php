@@ -18,7 +18,7 @@ class ExecProcess
             $command .= 'export PATH=$PATH:'.implode(":", $this->envList).'; ';
         }
         if(!empty($this->root)){
-            $$command .= 'cd '.$this->root.'; ';
+            $command .= 'cd '.$this->root.'; ';
         }
         if(!empty($this->command)){
             $command .= $this->command . ' > ' . $this->log . ' 2>&1 & echo $!;';
